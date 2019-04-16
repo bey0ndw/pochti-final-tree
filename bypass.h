@@ -29,30 +29,28 @@ void postOrder(TREENODEPTR treePtr){
 extern int duplicates,n;
 //Создаем структру, содержащую информацию об этаже ключа
 struct stageCounter{
-int stage;
-struct treeNode *Ptr;
+    int stage;
+    struct treeNode *Ptr;
 };
 struct stageCounter *stage_number;
 void stageBypass(TREENODEPTR treePtr, int i, int j){
     if(j == 0 && i == 0){
         stage_number=(struct stageCounter *)calloc(n,sizeof(struct stageCounter));
     }
-    if( treePtr!=NULL ){
+    if( treePtr !=NULL ){
         if (j==0){
             stage_number[j].stage = i;
             stage_number[j].Ptr = treePtr;
             j++;
         }
- while(stage_number[j].stage != NULL){
+        while(stage_number[j].stage != NULL){
             j++;
         }
-stage_number[j].stage = i;
+        stage_number[j].stage = i;
         stage_number[j].Ptr = treePtr;
         stageBypass(treePtr->leftPtr, i+1, j);
         stageBypass(treePtr->rightPtr, i+1, j);
-
     }
-
 }
 void stageSort(void){
     int i, j;
@@ -71,13 +69,11 @@ void stageSort(void){
 
     for (i=0; i<=n-1-duplicates; i++){
       printf("%d (st_%d); ", stage_number[i].Ptr->data, stage_number[i].stage+1);
-        if(i ==n-1-duplicates ) printf("\n");
+        if(i ==n-1-duplicates )
+            printf("\n");
     }
 }
 void stageOrder(TREENODEPTR treePtr){
-    for(int j = 0; stage_number[j].stage != NULL; ++j){
-        stage_number[j].stage = NULL;
-    }
     stageBypass(treePtr, 0, 0);
     stageSort();
 }

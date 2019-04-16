@@ -51,6 +51,7 @@ int main()
         printf("Введите элемент для удаления: ");
         scanf("%d", &value);
         dtree(rootPtr, value);
+        --n;
         break;
     default:
     printf("Invalid choice.\n\n");
@@ -62,6 +63,7 @@ int main()
     }
     FreeTree(*copy);
     FreeTree(rootPtr);
+    free(stage_number);
     printf("End of run.\n");
     return 0;
 }
