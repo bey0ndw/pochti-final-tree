@@ -1,11 +1,13 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
+
+#define COUNT 10
 void showLine(char* c, int p, int s) {
     int i;
     int t=s; for(i=0; i<p; i++) {printf(t&1 ? "| " : " "); t/=2;} printf(c);
 }
 void showTree(TREENODEPTR wood, int p, int s) {
-    if( wood->data == EOF) {
+    if( wood->data == ARSEN + 1) {
         printf("Дерево пусто");
         return;
     }
@@ -20,4 +22,5 @@ void showTree(TREENODEPTR wood, int p, int s) {
         showTree(wood->rightPtr, p+1, s);
     }
 }
+
 #endif // OUTPUT_H

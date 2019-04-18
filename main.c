@@ -18,8 +18,9 @@ int main()
     case 2:
     printf("Какое дерево вывести?(1-основное,0-копия)");
     scanf("%d", &value);
-    if (value == 1) showTree(rootPtr,0,0);
-        else showTree(*copy,0,0);
+    //if (value == 1) showTree(rootPtr,0,0);
+    //    else showTree(*copy,0,0);
+    print2D(rootPtr);
     break;
     case 3:
     printf("Какое дерево удалить?(1-основное,0-копия)");

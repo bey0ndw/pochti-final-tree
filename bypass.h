@@ -29,8 +29,8 @@ void postOrder(TREENODEPTR treePtr){
 extern int duplicates,n;
 //Создаем структру, содержащую информацию об этаже ключа
 struct stageCounter{
-    int stage;
-    struct treeNode *Ptr;
+int stage;
+struct treeNode *Ptr;
 };
 struct stageCounter *stage_number;
 void stageBypass(TREENODEPTR treePtr, int i, int j){
@@ -43,14 +43,16 @@ void stageBypass(TREENODEPTR treePtr, int i, int j){
             stage_number[j].Ptr = treePtr;
             j++;
         }
-        while(stage_number[j].stage != NULL){
+    while(stage_number[j].stage != NULL){
             j++;
         }
         stage_number[j].stage = i;
         stage_number[j].Ptr = treePtr;
         stageBypass(treePtr->leftPtr, i+1, j);
         stageBypass(treePtr->rightPtr, i+1, j);
+
     }
+
 }
 void stageSort(void){
     int i, j;

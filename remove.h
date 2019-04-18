@@ -9,7 +9,7 @@ void FreeTree( TREENODEPTR  w ) {
     //w = NULL;
     w->leftPtr = NULL;
     w->rightPtr = NULL;
-    w->data = EOF;
+    w->data = ARSEN + 1;
 }
 /*TREENODEPTR parent(TREENODEPTR root, int a){
     if(a == 0){

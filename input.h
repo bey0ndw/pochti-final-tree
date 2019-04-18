@@ -1,6 +1,8 @@
 #ifndef INPUT_H
 #define INPUT_H
 
+#define ARSEN 500
+
 /*----------------------------------------------Функция ввода, включающая в себя удаление двойников------------------------------------------------------------*/
 void insertNode(TREENODEPTR *treePtr, int value){
     if(*treePtr==NULL){
@@ -29,7 +31,7 @@ void insertNode(TREENODEPTR *treePtr, int value){
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------Функция ввода, включающие различные "фишки"----------------------------------------------------------*/
-TREENODEPTR insert_tree(void){
+    TREENODEPTR insert_tree(void){
     int i, item,marker;
     TREENODEPTR rootPtr=NULL;
     printf("Введите кол-во элементов: ");
@@ -40,8 +42,8 @@ TREENODEPTR insert_tree(void){
         srand((unsigned int)time(NULL));
        printf("The numbers degin placed in the tree are:\n");
         for(i=1; i<=n; i++){
-            item=rand()%100;
-            printf("%3d", item);
+            item=rand()%ARSEN;
+            printf("%3d ", item);
             insertNode(&rootPtr, item);
         }
     }

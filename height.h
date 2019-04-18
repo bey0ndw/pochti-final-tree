@@ -19,5 +19,6 @@ int stageSort1(void){
 void heightTree(TREENODEPTR treePtr) {
     stageBypass(treePtr, 0, 0);
     printf("\n The height is: %d stages. \n", stageSort1());
+
 }
 #endif // HEIGHT_H
